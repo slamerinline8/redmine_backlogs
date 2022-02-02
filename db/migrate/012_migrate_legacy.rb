@@ -1,4 +1,4 @@
-class MigrateLegacy < (ActiveRecord::VERSION::MAJOR >= 5) ? ActiveRecord::Migration["#{ActiveRecord::VERSION::MAJOR}.#{ActiveRecord::VERSION::MINOR}"] : ActiveRecord::Migration
+class MigrateLegacy < (ActiveRecord::VERSION::MAJOR >= 5) ? ActiveRecord::Migration[5.1]["#{ActiveRecord::VERSION::MAJOR}.#{ActiveRecord::VERSION::MINOR}"] : ActiveRecord::Migration[5.1]
   def self.normalize_value(v, t)
     v = v[1] if v.is_a?(Array)
 
@@ -56,7 +56,7 @@ class MigrateLegacy < (ActiveRecord::VERSION::MAJOR >= 5) ? ActiveRecord::Migrat
 
     adapter = ActiveRecord::Base.connection.instance_variable_get("@config")[:adapter].downcase
 
-    ActiveRecord::Base.connection.commit_db_transaction unless adapter.include?('sqlite')
+    # ActiveRecord::Base.connection.commit_db_transaction unless adapter.include?('sqlite')
 
     if ActiveRecord::Base.connection.tables.include?('backlogs')
       RbStory.reset_column_information
@@ -89,7 +89,7 @@ class MigrateLegacy < (ActiveRecord::VERSION::MAJOR >= 5) ? ActiveRecord::Migrat
       }
 
       # close existing transactions and turn on autocommit
-      ActiveRecord::Base.connection.commit_db_transaction unless adapter.include?('sqlite')
+      # ActiveRecord::Base.connection.commit_db_transaction unless adapter.include?('sqlite')
 
       say_with_time "Migrating Backlogs data..." do
         bottom = 0
@@ -190,7 +190,7 @@ class MigrateLegacy < (ActiveRecord::VERSION::MAJOR >= 5) ? ActiveRecord::Migrat
         from backlogs
         join backlog_chart_data on backlogs.id = backlog_id
         }
-      ActiveRecord::Base.connection.commit_db_transaction unless adapter.include?('sqlite')
+      # ActiveRecord::Base.connection.commit_db_transaction unless adapter.include?('sqlite')
 
       drop_table :backlogs
       drop_table :items

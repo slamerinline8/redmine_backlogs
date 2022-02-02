@@ -1,6 +1,6 @@
 require "./plugins/redmine_backlogs/db/migrate/047_add_issues_rbcache.rb"
 
-class AddIssuesReleaseDayCache < (ActiveRecord::VERSION::MAJOR >= 5) ? ActiveRecord::Migration["#{ActiveRecord::VERSION::MAJOR}.#{ActiveRecord::VERSION::MINOR}"] : ActiveRecord::Migration
+class AddIssuesReleaseDayCache < (ActiveRecord::VERSION::MAJOR >= 5) ? ActiveRecord::Migration[5.1]["#{ActiveRecord::VERSION::MAJOR}.#{ActiveRecord::VERSION::MINOR}"] : ActiveRecord::Migration[5.1]
   def self.up
     create_table :rb_release_burnchart_day_caches, :id => false do |t|
       t.column :issue_id, :integer, :null => false
