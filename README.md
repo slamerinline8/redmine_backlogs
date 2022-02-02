@@ -4,6 +4,11 @@ REDMINE BACKLOGS
 A Redmine plugin for agile teams. For more information,
 please visit https://backlogs.github.io/www/
 
+Currently it doesn't work on Redmine 4.2.3. It's an ongoing project which tries to bring this plugin back to life.
+
+At the moment it includes the following fixes mentioned here:
+https://github.com/backlogs/redmine_backlogs/issues/1153
+
 PROJECT HEALTH
 --------------
 
