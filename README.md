@@ -4,10 +4,12 @@ REDMINE BACKLOGS
 A Redmine plugin for agile teams. For more information,
 please visit https://backlogs.github.io/www/
 
-Currently it doesn't work on Redmine 4.2.3. It's an ongoing project which tries to bring this plugin back to life.
+This is a fix, currently works on Redmine 4.2.3-passenger running in Docker.
 
 At the moment it includes the following fixes mentioned here:
 https://github.com/backlogs/redmine_backlogs/issues/1153
+with PurpleMine2 theme:
+https://github.com/mrliptontea/PurpleMine2
 
 PROJECT HEALTH
 --------------
@@ -21,6 +23,4 @@ LICENSE
 -------
 This plugin is released under the GPL v2 license. See
 LICENSE for more information.
-
-Due to time restraints I can only support the latest release, PLEASE take this into consideration before posting issues. Upgrade first.
 
